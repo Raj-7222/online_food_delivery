@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center;
+    height: 100vh;
+    background-image: url(images/back.webp);
+    background-repeat: no-repeat;
+    background-size: cover; /* This makes the image cover the entire background */
+}
+
+.signup-container {
+    background-color:transparent;
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 600px; /* Increase width for a bigger form */
+    text-align: center;
+    margin-left: auto; /* Align to the right */
+}
+
+.signup-container h2 {
+    margin-bottom: 30px;
+    color: #ff8000;
+}
+
+.signup-container label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    color: rgb(5, 3, 3);
+}
+
+.signup-container input {
+    width: 100%;
+    padding: 15px; /* Larger padding for bigger input fields */
+    margin-bottom: 15px;
+    border: 1px solid #252323;
+    border-radius: 5px;
+}
+
+.signup-container button {
+    width: 100%;
+    padding: 15px; /* Larger button */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.signup-container button:hover {
+    background-color: #45a049;
+}
+
+.signup-container p {
+    margin-top: 20px;
+    color: white;
+}
+
+.signup-container a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+#backButton {
+    margin-top: 20px;
+    background-color: #f44336;
+}
+
+#backButton:hover {
+    background-color: #e53935;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Restaurant Name</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <h1>
+    <ul>
+        <a href="index.html"><li>Home</li></a>
+    </ul></h1>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or concerns, please feel free to contact us using the form below.</p>
+
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Optional">
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="confirmationMessage"></p>
+        
+
+        <div class="call-request">
+            
+            <h3>Request a Call</h3>
+            <p>Enter your phone number below, and we'll call you back as soon as possible.</p>
+            <form id="callForm">
+                <label for="requestPhone">Phone:</label>
+                <input type="tel" id="requestPhone" name="requestPhone" required placeholder="Your phone number">
+                <button type="submit">Request a Call</button>
+            </form>
+            <p id="callConfirmation"></p>
+        </div>
+
+        <div class="chat-us">
+            <h3>Chat with Us</h3>
+            <p>Need immediate assistance? Chat with us now.</p>
+            <button id="chatButton">Chat with Us</button>
+        </div>
+    </div>
+    <script src="contact.js"></script>
+</body>
+</html>

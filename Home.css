@@ -1,0 +1,38 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    background-image: url('images/back.webp'); /* Ensure the path is correct */
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+.welcome-section {
+    text-align: center;
+    background-image: url('./images/back.webp'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+    font-size: 6rem;
+    font-family: 'Pacifico', cursive; /* Use Pacifico font */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 700; /* Ensure the font appears bold */
+    color: #f8ff00; /* Solid yellow color */
+}

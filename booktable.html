@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="booktable.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Table</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="/images/logo.jpeg" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <a href="index.html"><li>HOME</li></a>
+                    <a href="about.html"><li>ABOUT US</li></a>
+                    <a href="menu.html"><li>FOOD MENU</li></a>
+                    <a href="contact.html"><li>CONTACT US</li></a>
+                    <a href="payment.html"><li>PAYMENT</li></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="booking-form">
+            <h1>Book Your Table</h1>
+            <form id="bookingForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <h3>Select your food items and quantity:</h3>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Burger"> Burger ($5.99)
+                    </label>
+                    <input type="number" name="burgerQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Pizza"> Pizza ($8.99)
+                    </label>
+                    <input type="number" name="pizzaQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Pasta"> Pasta ($7.49)
+                    </label>
+                    <input type="number" name="pastaQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Salad"> Salad ($4.99)
+                    </label>
+                    <input type="number" name="saladQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Chicken Curry"> Chicken Curry ($9.99)
+                    </label>
+                    <input type="number" name="chickenCurryQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Fried Rice"> Fried Rice ($6.99)
+                    </label>
+                    <input type="number" name="friedRiceQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Samosa"> Samosa ($1.99)
+                    </label>
+                    <input type="number" name="samosaQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Spring Roll"> Spring Roll ($3.99)
+                    </label>
+                    <input type="number" name="springRollQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Paneer Butter Masala"> Paneer Butter Masala ($8.49)
+                    </label>
+                    <input type="number" name="paneerButterMasalaQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <div class="food-item">
+                    <label>
+                        <input type="checkbox" name="food" value="Chili Chicken"> Chili Chicken ($10.49)
+                    </label>
+                    <input type="number" name="chiliChickenQty" min="1" max="10" placeholder="Quantity" disabled>
+                </div>
+
+                <button type="submit" class="book-now">Book Now</button>
+                <button type="button" class="book-now" onclick="window.location.href='payment.html'">Place Order</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 HUNGER HUB. All rights reserved.</p>
+            <div class="social-media">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+   
+        const firebaseConfig = {
+            apiKey: "AIzaSyBEirEqvXiSKvcB9Iia7-LXM_xfwyuUdNg",
+            authDomain: "learning-614e4.firebaseapp.com",
+            projectId: "learning-614e4",
+            storageBucket: "learning-614e4.appspot.com",
+            messagingSenderId: "905319129476",
+            appId: "1:905319129476:web:38debf02bdd09100847dd1"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('bookingForm');
+            
+            document.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
+                checkbox.addEventListener('change', function () {
+                    const qtyInput = this.parentElement.nextElementSibling;
+                    if (this.checked) {
+                        qtyInput.disabled = false;
+                        qtyInput.required = true;
+                    } else {
+                        qtyInput.disabled = true;
+                        qtyInput.required = false;
+                        qtyInput.value = ''; 
+                    }
+                });
+            });
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); 
+
+                const name = form.name.value;
+                const email = form.email.value;
+                const date = form.date.value;
+                const time = form.time.value;
+
+                
+                if (!name || !email || !date || !time) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+
+                
+                const selectedItems = [];
+                document.querySelectorAll('input[type="checkbox"]:checked').forEach(function (checkbox) {
+                    const foodName = checkbox.value;
+                    const quantity = checkbox.parentElement.nextElementSibling.value;
+                    if (quantity) {
+                        selectedItems.push({ foodName, quantity });
+                    }
+                });
+
+                if (selectedItems.length === 0) {
+                    alert('Please select at least one food item.');
+                    return;
+                }
+
+                
+                const order = {
+                    name,
+                    email,
+                    date,
+                    time,
+                    items: selectedItems
+                };
+
+                const ordersRef = ref(database, 'orders');
+                const newOrderRef = push(ordersRef);
+                set(newOrderRef, order)
+                    .then(() => {
+                        alert('Booking confirmed and saved to Firebase!');
+                        form.reset(); 
+                        document.querySelectorAll('input[type="number"]').forEach(input => input.disabled = true);
+                    })
+                    .catch(error => {
+                        alert('Error saving order: ' + error.message);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

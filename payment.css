@@ -1,0 +1,119 @@
+body{
+    
+    
+        color: white; /* Sets all text color to white */
+        background-image: url(images/back.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+    
+}
+header{
+    color: white; 
+    background-color: transparent;
+}
+
+.payment-container {
+    margin-top: 40px;
+    background-color:transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white;
+    
+}
+
+.payment-form .payment-method {
+    margin-bottom: 15px;
+    background-color:transparent;
+}
+
+.payment-method label {
+    font-weight: bold;
+    color: white;
+
+    cursor: pointer;
+}
+
+.payment-details {
+    margin-top: 10px;
+    margin-left: 20px;
+    display: none;
+}
+
+.payment-details input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* Toggle the payment details visibility based on selected method */
+#upi:checked ~ .payment-details,
+#bank:checked ~ .payment-details,
+#card:checked ~ .payment-details {
+    display: block;
+}
+
+.qr-code-scanner {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.qr-code-scanner h3 {
+    font-size: 1.2em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#scan-qr {
+    background-color: #Fff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#scan-qr:hover {
+    background-color: #FFF;
+}
+
+.payment-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.payment-form button[type="submit"]:hover {
+    background-color: #218838;
+}
+button {
+    display: block; /* Makes the button fill the available width */
+    background-color: #28a745; /* Green button */
+    color: white;
+    border: none;
+    padding: 20px; /* Increase padding for a larger button */
+    font-size: 24px; /* Larger text size */
+    text-transform: uppercase; /* Makes the text uppercase */
+    cursor: pointer;
+    border-radius: 10px; /* Bigger rounded corners */
+    margin-top: 20px;
+    width: 100%; /* Full width */
+    max-width: 500px; /* Optional: Limit max width for better look on large screens */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+

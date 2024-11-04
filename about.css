@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color:  rgb(255, 230, 199);
+}
+
+header {
+   background-color: rgb(246, 170, 78);
+    border-bottom: 1px solid #ddd;
+}
+header .logo img {
+    height: 50px;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: #333;
+} 
+nav a:hover {
+    color: #d9534f;
+}
+main {
+    padding: 20px;
+}
+.about-intro {
+    text-align: center;
+}
+.about-intro h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: rgb(255, 0, 0);
+}
+
+.about-intro p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.our-story {
+    text-align: center;
+    margin: 40px 0;
+    font-size: large;
+}
+
+.our-story img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.meet-team {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #d9534f;
+    
+}
+
+.team-member {
+    flex: 1 1 30%;
+    text-align: center;
+}
+
+.team-member img {
+    width: 150%;
+    max-width: 200px;
+    border-radius: 50%;
+    
+
+}
+
+.values ul {
+    list-style: none;
+    padding: 0;
+    background-color: rgb(248,232,217);
+    border-bottom: 2px solid rgb(252,196,124);
+    box-shadow: 0 2px rgb(253,124,124);
+}
+
+.values li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.contact-info {
+    background-color: rgb(248,232,217);
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    color: rgb(0, 0, 0);
+}
+
+footer {
+    background-color:orange;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .social-media a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-media a:hover {
+    color: #d9534f;
+}

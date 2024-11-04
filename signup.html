@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <label for="fullname">Enter Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
+            
+            <label for="email">Enter E-mail</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Create Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="signin2.html">Sign In</a></p>
+        <button id="backButton">Back</button>
+    </div>
+    
+    <script src="signup.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyBEirEqvXiSKvcB9Iia7-LXM_xfwyuUdNg",
+            authDomain: "learning-614e4.firebaseapp.com",
+            projectId: "learning-614e4",
+            storageBucket: "learning-614e4.appspot.com",
+            messagingSenderId: "905319129476",
+            appId: "1:905319129476:web:38debf02bdd09100847dd1"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        
+        document.getElementById("signupForm").addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const fullname = document.getElementById("fullname").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const confirmPassword = document.getElementById("confirmPassword").value;
+
+          if (password !== confirmPassword) {
+              alert("Passwords do not match!");
+              return; 
+          }
+          
+          set(ref(db, 'users/' + fullname), {
+            fullname: fullname,
+            email: email,
+            password: password
+          })
+          .then(() => {
+            alert("Registration Successful");
+            document.getElementById("signupForm").reset();
+          })
+          .catch((error) => {
+            console.error("Error registering user:", error);
+            alert("Registration failed. Please try again.");
+          });
+        });
+    </script>
+</body>
+</html>
